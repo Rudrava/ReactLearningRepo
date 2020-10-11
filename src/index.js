@@ -1,44 +1,38 @@
-import React from "react"
-import ReactDom from "react-dom"
+import React from "react";
+import ReactDom from "react-dom";
 
-// :: COMPONENT UNDER THE HOOD OF JSX ::
-// const Greeting = () => {
-// 	return React.createElement(
-// 		'div',
-// 		{},
-// 		React.createElement(
-// 			"h1",
-// 			{}, 
-// 			"hello world"))
-// }
+// :: CSS ::
+import "./index.css";
 
-// :: COMPONENT WITH JSX ::
-// function Greeting () {
-// 	return ( 
-// 			<div>
-// 				<h1>This is Rudrava</h1>
-// 				<p>This is my non-splitted component</p>
-// 			</div>
-// 	)
-// }
-
-
-
-// :: SPLITTING UP COMPONENTS ::
-function Greeting () {
-	return ( 
-			<div>
-				<Name/>
-				<Message/>
-			</div>
-	)
+//BOOK list COMPONENT
+function BookList() {
+	return (
+		<section className="bookList">
+			<Book />
+			<Book />
+			<Book />
+			<Book />
+			<Book />
+			<Book />
+		</section>
+	);
 }
 
-// :: splitted componenets ::
-const Name = () => <h1>This is Rudrava</h1>
-const Message = () => {
-	return <p>This is my non-splitted component</p>
-}
+// Book component
+const Book = () => (
+	<article className="book">
+		<BookImg />
+		<BookName />
+		<Author />
+	</article>
+);
 
-// :: renderer ::
-ReactDom.render(<Greeting/>, document.getElementById('root'))
+const BookImg = () => <img src="https://via.placeholder.com/150" alt="img" />;
+
+const BookName = () => <h1>I dont know</h1>;
+
+// :: inline styled component ::
+const Author = () => <h4 style={{ color: "#617d98" }}> Rudrava Mukherjee</h4>;
+
+//:: renderer ::
+ReactDom.render(<BookList />, document.getElementById("root"));
