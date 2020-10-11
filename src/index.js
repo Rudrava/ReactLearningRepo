@@ -1,17 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react"
+import ReactDom from "react-dom"
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// :: COMPONENT UNDER THE HOOD OF JSX ::
+// const Greeting = () => {
+// 	return React.createElement(
+// 		'div',
+// 		{},
+// 		React.createElement(
+// 			"h1",
+// 			{}, 
+// 			"hello world"))
+// }
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// :: COMPONENT WITH JSX ::
+// function Greeting () {
+// 	return ( 
+// 			<div>
+// 				<h1>This is Rudrava</h1>
+// 				<p>This is my non-splitted component</p>
+// 			</div>
+// 	)
+// }
+
+
+
+// :: SPLITTING UP COMPONENTS ::
+function Greeting () {
+	return ( 
+			<div>
+				<Name/>
+				<Message/>
+			</div>
+	)
+}
+
+// :: splitted componenets ::
+const Name = () => <h1>This is Rudrava</h1>
+const Message = () => {
+	return <p>This is my non-splitted component</p>
+}
+
+// :: renderer ::
+ReactDom.render(<Greeting/>, document.getElementById('root'))
