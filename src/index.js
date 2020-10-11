@@ -9,30 +9,28 @@ function BookList() {
 	return (
 		<section className="bookList">
 			<Book />
-			<Book />
-			<Book />
-			<Book />
-			<Book />
-			<Book />
 		</section>
 	);
 }
 
 // Book component
-const Book = () => (
-	<article className="book">
-		<BookImg />
-		<BookName />
-		<Author />
-	</article>
-);
+const Book = () => {
+	// :: normal js here ::
+	const title = "I dont know"
+	const name = "Rudrava Mukherjee"
+	return (
+		<article className="book">
+			<img src="https://via.placeholder.com/150" alt="img" />
+			{/* :: ADDING  JS VARIABLE INSIDE JSX :: */}
+			<h1>{title}</h1>
+			<h4> {name}</h4>
+			
+			{/*:: err ::*/}
+			{/* <h4> {name = "someone"}</h4> */}
+		</article>
+	);
+}
 
-const BookImg = () => <img src="https://via.placeholder.com/150" alt="img" />;
-
-const BookName = () => <h1>I dont know</h1>;
-
-// :: inline styled component ::
-const Author = () => <h4 style={{ color: "#617d98" }}> Rudrava Mukherjee</h4>;
 
 //:: renderer ::
 ReactDom.render(<BookList />, document.getElementById("root"));
