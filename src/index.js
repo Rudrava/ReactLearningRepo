@@ -37,28 +37,36 @@ function BookList() {
 	return (
 		<section className="bookList">
 			{books.map((book) => {
-				// :: WAY THREE OF 4 sending a obj of props::
-				// return <Book book={book}/>
-
-				//:: WAY 4 OF 4 using spread to send individual propdata::
 				return <Book key={book.id} {...book}/>
 			})}
 		</section>
 	);
 }
 
-// adding param to the components
-// accessing a child like so
-const Book = (props) => {
-	// :: WAY THREE OF 4 receiving a obj of props ::
-	// const { title, name, imgLink } = props.book 
-	
-	//:: WAY 4 OF 4 using spread to send individual prop data :: 
-	// NOTE this can be also destructed at the param field !!!
-	const { title, name, imgLink } = props
+//Book Component
 
+const Book = ({ title, name, imgLink }) => {
+	// accessing the event obj as a param
+	// const clickHandler = (e) => {
+	// 	console.log(e)
+	// }
+
+	// this funtion getting invoked on page load due to its calling way
+	// const clickHandler = (e) => {
+	// 	console.log(e)
+	// }
+
+	// this function getting invoked when event is happening due to call method
+	const clickHandler = (e) => {
+		console.log(e)
+	}
 	return (
-		<article className="book">
+		// setting up event
+		// normal handler call from an event
+		// <article className="book" onClick={clickHandler}>
+
+		// passing param to a handler does not invoke as it is in the return statement of a arrow funct (here)
+		<article className="book" onClick={() => clickHandler(title)}>
 			<img src={imgLink} alt="img" />
 			<h1>{title}</h1>
 			<h4> {name}</h4>
