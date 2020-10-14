@@ -5,53 +5,63 @@ import ReactDom from "react-dom";
 import "./index.css";
 
 //  :: SET UP VARS ::
-const firstBook = {
-	title : "I don't know",
-	name : "Rudrava Mukherjee",
-	imgLink : "https://via.placeholder.com/150"
-}
-
-const secondBook = {
-	title : "I still don't know",
-	name : "Rudra",
-	imgLink : "https://via.placeholder.com/150"
-}
+const books = [
+	{
+		id: 1,
+		title : "I don't know",
+		name : "Rudrava Mukherjee",
+		imgLink : "https://via.placeholder.com/150"
+	},
+	{
+		id: 2,
+		title : "I still don't know",
+		name : "Rudra",
+		imgLink : "https://via.placeholder.com/150"
+	},
+	{
+		id: 3,
+		title : "When Would i  know asd asda asd assd",
+		name : "Rudraasd",
+		imgLink : "https://via.placeholder.com/150"
+	},
+	{
+		id: 4,
+		title : "Fuck it i'll never know",
+		name : "Rudra",
+		imgLink : "https://via.placeholder.com/150"
+	}
+]
 
 //BOOK list COMPONENT
 function BookList() {
 	return (
 		<section className="bookList">
-			<Book 
-				title = { firstBook.title } 
-				name = { firstBook.name }
-				imgLink= { firstBook.imgLink }
-			>
-			<p>
-		{/*this is a child*/}
-				非法汉化版搜索奇迹一
-				次国语经销商不需要帮
-				我报价试验邮箱，打。
-			</p>	
+			{books.map((book) => {
+				// :: WAY THREE OF 4 sending a obj of props::
+				// return <Book book={book}/>
 
-			</Book>
-			<Book 
-				title = { secondBook.title } 
-				name = { secondBook.name }
-				imgLink= { secondBook.imgLink }
-			/>
+				//:: WAY 4 OF 4 using spread to send individual propdata::
+				return <Book key={book.id} {...book}/>
+			})}
 		</section>
 	);
 }
 
 // adding param to the components
 // accessing a child like so
-const Book = ({ title, name, imgLink, children}) => {
+const Book = (props) => {
+	// :: WAY THREE OF 4 receiving a obj of props ::
+	// const { title, name, imgLink } = props.book 
+	
+	//:: WAY 4 OF 4 using spread to send individual prop data :: 
+	// NOTE this can be also destructed at the param field !!!
+	const { title, name, imgLink } = props
+
 	return (
 		<article className="book">
 			<img src={imgLink} alt="img" />
 			<h1>{title}</h1>
 			<h4> {name}</h4>
-			<p> {children} </p>
 		</article>
 	);
 }

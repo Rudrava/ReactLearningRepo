@@ -18,17 +18,15 @@ body {
 	grid-gap: 2rem;
 }
 
-@media screen and (min-width: 768px) {
-	.bookList {
-		grid-template-columns: repeat(3, 1fr);
-	}
-}
 
 .book {
 	margin: auto;
 	background-color: #fff;
+	width: 60%;
 	border-radius: 1em;
 	padding: 1em 2em;
+	box-shadow: 5px 6px 10px #999999;
+	height: 100%;
 }
 
 .book h1 {
@@ -40,4 +38,22 @@ body {
 	font-size: 0.75rem;
 	margin-top: 0.5em;
 	color: #617d98;
+}
+
+@media screen and (max-width: 767px) {
+	.bookList {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.book {
+		/*border: 1px solid red;*/
+		width: 70%;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.bookList {
+		/*border: 1px solid red;*/
+		grid-template-columns: repeat(3, 1fr);
+	}
+	
 }
