@@ -1,7 +1,6 @@
-// importing react as we are making components
+
 import React from "react"
 
-// default export NOTE:: only one per file and do not need to worry bout the name while importing as it is a default
 
 const Book = ({ title, name, imgLink }) => {
 	const clickHandler = (e) => {

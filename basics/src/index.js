@@ -1,19 +1,14 @@
+// dependency import
 import React from "react";
 import ReactDom from "react-dom";
 
-// import / export ing modules
-// named import
+// components import
 import { books } from "./books"
-// default import
 import Book from "./Book"
 
-// :: CSS ::
+// css import
 import "./index.css";
 
-//  :: SET UP VARS ::
-// moved to books.js and importing above as a named import
-
-//BOOK list COMPONENT
 function BookList() {
 	return (
 		<section className="bookList">
@@ -24,10 +19,7 @@ function BookList() {
 	);
 }
 
-{/*Book Component moved to Book.js*/}
-
-
-
+// Book Component moved to Book.js*
 
 //:: renderer ::
 ReactDom.render(<BookList />, document.getElementById("root"));

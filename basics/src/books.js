@@ -1,6 +1,3 @@
-// named export ie need to destructure with the same name ! 
-
-
 export const books = [
 	{
 		id: 1,
