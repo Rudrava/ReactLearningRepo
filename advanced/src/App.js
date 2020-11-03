@@ -1,8 +1,13 @@
 import React from 'react';
-function App() {
+import Stp from './tutorial/3-conditional-rendering/setup/2-short-circuit' 
+
+
+
+function App({help}) { 
+	
   return (
     <div className='container'>
-      <h2>Advanced Tutorial</h2>
+    	<Stp/>
     </div>
   );
 }
